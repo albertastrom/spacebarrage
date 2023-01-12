@@ -1,4 +1,3 @@
-/*
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,7 +25,7 @@ public class MoveShield : MonoBehaviour
             // move shield left if x greater than -5
             if (shieldX > -5)
             {
-                shieldX -= (float) 0.01;
+                shieldX -= 0.01f;
             }
             
         }
@@ -37,7 +36,7 @@ public class MoveShield : MonoBehaviour
             // move shield right if x less than 5
             if (shieldX < 5)
             {
-                shieldX += (float) 0.01;
+                shieldX += 0.01f;
             }
             
         }
@@ -48,7 +47,7 @@ public class MoveShield : MonoBehaviour
             // move shield up if y is less than 5
             if (shieldY < 5)
             {
-                shieldY += (float) 0.01;
+                shieldY += 0.01f;
             }
             
         }
@@ -59,7 +58,7 @@ public class MoveShield : MonoBehaviour
             // move shield down if y greater than -5
             if (shieldY > -5)
             {
-                shieldY -= (float) 0.01;
+                shieldY -= 0.01f;
             }
             
         }
@@ -86,4 +85,3 @@ public class MoveShield : MonoBehaviour
         }
     }
 }
-*/
