@@ -25,7 +25,7 @@ public class MoveShield : MonoBehaviour
             // move shield left if x greater than -5
             if (shieldX > -5)
             {
-                shieldX -= 0.01;
+                shieldX -= (float) 0.01;
             }
             
         }
@@ -36,7 +36,7 @@ public class MoveShield : MonoBehaviour
             // move shield right if x less than 5
             if (shieldX < 5)
             {
-                shieldX += 0.01;
+                shieldX += (float) 0.01;
             }
             
         }
@@ -47,7 +47,7 @@ public class MoveShield : MonoBehaviour
             // move shield up if y is less than 5
             if (shieldY < 5)
             {
-                shieldY += 0.01;
+                shieldY += (float) 0.01;
             }
             
         }
@@ -58,7 +58,7 @@ public class MoveShield : MonoBehaviour
             // move shield down if y greater than -5
             if (shieldY > -5)
             {
-                shieldY -= 0.01;
+                shieldY -= (float) 0.01;
             }
             
         }
@@ -77,7 +77,7 @@ public class MoveShield : MonoBehaviour
             shieldDirection += 1;
         }
 
-        else if (Input.GetKey(KKeyCode.R))
+        else if (Input.GetKey(KeyCode.R))
         {
             shieldDirection = 0;
             shieldX = 0;
