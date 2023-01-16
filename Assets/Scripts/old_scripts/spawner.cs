@@ -6,11 +6,11 @@ public class spawner : MonoBehaviour
 {
     public GameObject missle;
     public Transform aim;
-    // Start is called before the first frame update
+ 
     void Start()
     {
-        // print transform.position
-        Debug.Log(transform.position);
+    
+
         
     }
 
@@ -21,8 +21,11 @@ public class spawner : MonoBehaviour
         // when spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // offset aim's rotation by -90 degrees
+            aim.Rotate(0, 0, -90);
+            
             // spawn a missle
-            Instantiate(missle, new Vector3(0, -3.25f, 0), aim.rotation);
+            Instantiate(missle, aim.position, aim.rotation);
         }
 
         // destroy missle after 5 seconds
