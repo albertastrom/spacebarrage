@@ -6,6 +6,8 @@ public class target_collision : MonoBehaviour
 {
     public int health;
 
+    public GameMaster gm;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,14 @@ public class target_collision : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            // destroy all missiles
+            GameObject[] missiles = GameObject.FindGameObjectsWithTag("Human_Missile");
+            foreach (GameObject missile in missiles)
+            {
+                Destroy(missile);
+            }
+            // stop game
+            gm.isRunning = false;
         }
     }
 }

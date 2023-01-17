@@ -5,12 +5,12 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     
-    
+    public bool isRunning;
     
     // Start is called before the first frame update
     void Start()
     {
-       
+       isRunning = true;
         
 
     }
@@ -18,8 +18,11 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // destroy all missiles ever 2 seconds
-
+        // run freeze missile function when "h" is pressed
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            Debug.Log(getMissileCount());
+        }
         
 
 
@@ -28,6 +31,19 @@ public class GameMaster : MonoBehaviour
         
 
     
+        
+    }
+
+    // return the number of missiles in the scene
+    public int getMissileCount()
+    {
+        GameObject[] missiles = GameObject.FindGameObjectsWithTag("Human_Missile");
+        // if missiles have been destroyed, return 0
+        if (missiles == null)
+        {
+            return 0;
+        }
+        return missiles.Length;
         
     }
 }

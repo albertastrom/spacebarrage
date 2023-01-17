@@ -6,6 +6,7 @@ public class spawner : MonoBehaviour
 {
     public GameObject missle;
     public Transform aim;
+    public GameMaster gm;
  
     void Start()
     {
@@ -17,10 +18,11 @@ public class spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
         // when spacebar is pressed
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning)
         {
+            Debug.Log(gm.isRunning);
             // offset aim's rotation by -90 degrees
             aim.Rotate(0, 0, -90);
             
