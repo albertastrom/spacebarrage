@@ -15,7 +15,7 @@ public class homing_missile_controller : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Alien").transform;
         
 
         
@@ -27,6 +27,8 @@ public class homing_missile_controller : MonoBehaviour
         if (transform.position.x > 10)
         {
             Destroy(gameObject);
+            Debug.Log("OnCollisionEnter2D");
+
         }
         
     }
@@ -43,5 +45,12 @@ public class homing_missile_controller : MonoBehaviour
         rb.angularVelocity = -rotateAmount * rotationSpeed;
 
         rb.velocity = transform.up * speed;
+    }
+
+    void onDestory()
+    {
+        // particle effect 
+        // sound effect
+        
     }
 }

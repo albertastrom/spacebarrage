@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Alien
   - Human
+  - Human_Missile
   layers:
   - Default
   - TransparentFX
