@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class missle_controller : MonoBehaviour
+public class startbutton : MonoBehaviour
 {
-    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
-        // set velocity of the missle to in the direction it is facing
-        rb.velocity = transform.up * 5;
         
     }
 
@@ -20,5 +17,13 @@ public class missle_controller : MonoBehaviour
     void Update()
     {
         
+    }
+
+    // on click, load the battle field scene
+    
+
+    public void startGame()
+    {
+        SceneManager.LoadScene("BattleField");
     }
 }

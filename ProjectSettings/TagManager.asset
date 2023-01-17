@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Alien
+  - Human
+  - Human_Missile
   layers:
   - Default
   - TransparentFX
@@ -38,9 +41,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Front
-    uniqueID: 2187542529
-    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 2187542529
+    locked: 0
+  - name: Ships
+    uniqueID: 2251546435
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2138612361
+    locked: 0
+  - name: Obstacles
+    uniqueID: 3315259665
     locked: 0
