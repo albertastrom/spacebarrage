@@ -2,27 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class homingmissle : MonoBehaviour
+public class homing_missile_controller : MonoBehaviour
 {
-    public Transform target;
-
-    public float speed = 5f;
-    public float rotationSpeed = 200f;
-
     private Rigidbody2D rb;
+
+    private Transform target;
+
+    private float speed = 5f;
+    private float rotationSpeed = 80f;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb.GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         
-        target = GameObject.FindGameObjectWithTag("Alien").transform;
+
         
     }
 
-    // Update is called once per frame
+   void Update()
+    {
+
+        if (transform.position.x > 10)
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
     void FixedUpdate()
     {
+
         Vector2 direction = (Vector2)target.position - rb.position;
 
         direction.Normalize();
@@ -32,6 +43,5 @@ public class homingmissle : MonoBehaviour
         rb.angularVelocity = -rotateAmount * rotationSpeed;
 
         rb.velocity = transform.up * speed;
-        
     }
 }
