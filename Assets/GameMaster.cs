@@ -6,7 +6,7 @@ public class GameMaster : MonoBehaviour
 {
     
     public bool isRunning;
-    bool isPaused;
+    public bool isPaused = false;
     
     // Start is called before the first frame update
     void Start()

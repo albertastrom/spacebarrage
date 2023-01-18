@@ -8,14 +8,19 @@ public class homing_missile_controller : MonoBehaviour
 
     private Transform target;
 
+    GameMaster gm;
+    Animator anim;
+
     private float speed = 5f;
     private float rotationSpeed = 80f;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Alien").transform;
+        anim = GetComponent<Animator>();
         
 
         
@@ -27,8 +32,17 @@ public class homing_missile_controller : MonoBehaviour
         if (transform.position.x > 10)
         {
             Destroy(gameObject);
-            Debug.Log("OnCollisionEnter2D");
+            Debug.Log("Missile Destroyed - Out of Range");
 
+        }
+
+        if (gm.isPaused)
+        {
+            anim.speed=0;
+        }
+        else
+        {
+            anim.speed=1;
         }
         
     }
