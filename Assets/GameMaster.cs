@@ -34,11 +34,11 @@ public class GameMaster : MonoBehaviour
         }
 
         // freeze all missiles after 2 seconds
-        if (Time.time > 2 && isRunning)
-        {
-            freezeMissiles();
-            // isRunning = false;
-        }
+        // if (Time.time > 2 && isRunning)
+        // {
+        //     freezeMissiles();
+        //     // isRunning = false;
+        // }
         
         
         
