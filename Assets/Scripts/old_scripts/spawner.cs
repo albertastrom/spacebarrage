@@ -22,12 +22,14 @@ public class spawner : MonoBehaviour
         // when spacebar is pressed
         if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning)
         {
-            Debug.Log(gm.isRunning);
+            // Debug.Log(gm.isRunning);
             // offset aim's rotation by -90 degrees
-            aim.Rotate(0, 0, -90);
+
+            Quaternion rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
+            
             
             // spawn a missle
-            Instantiate(missle, aim.position, aim.rotation);
+            Instantiate(missle, aim.position, rot);
         }
 
         // destroy missle after 5 seconds

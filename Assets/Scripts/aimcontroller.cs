@@ -6,7 +6,7 @@ public class aimcontroller : MonoBehaviour
 {
 
     public float direction;
-    public float speed = 0.05f;
+    public float speed = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -14,10 +14,11 @@ public class aimcontroller : MonoBehaviour
         direction = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
     {
         rotation();
+        // mouseRotate();
     }
 
     void rotation()
@@ -27,7 +28,7 @@ public class aimcontroller : MonoBehaviour
         {
             if (direction < 45)
             {
-                direction += .05f;
+                direction += 1f;
             }
         }
 
@@ -37,16 +38,20 @@ public class aimcontroller : MonoBehaviour
     
             if (direction > -45)
             {
-                direction -= .050f;
+                direction -= 1f;
             }
         }
-        else
-        {
-            // stop rotating
-            // direction = 0;
-        }
+        
 
         // set z rotation of the object by the direction
         transform.eulerAngles = new Vector3(0, 0, direction);
+    }
+
+    void mouseRotate()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
     }
 }

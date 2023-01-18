@@ -4,6 +4,19 @@ using UnityEngine;
 
 public class GameMaster : MonoBehaviour
 {
+
+    // The game loop
+
+    // Player 1 Display
+    // Player one pick a trajectory
+    // Player two Display
+    // Player two pick a trajectory
+    // Round begins - missiles are launched
+    // 3 seconds later, missiles are frozen
+    // Player one pick a trajectory
+    // Player two pick a trajectory
+    // Round begins - missiles are launched
+    // 3 seconds later, missiles are frozen
     
     public bool isRunning;
     public bool isPaused = false;

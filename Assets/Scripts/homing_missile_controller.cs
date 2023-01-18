@@ -11,6 +11,8 @@ public class homing_missile_controller : MonoBehaviour
     GameMaster gm;
     Animator anim;
 
+    public ParticleSystem ps;
+
     private float speed = 5f;
     private float rotationSpeed = 80f;
 
@@ -21,6 +23,9 @@ public class homing_missile_controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Alien").transform;
         anim = GetComponent<Animator>();
+        ps.Emit(1);
+        ps.Play();
+        
         
 
         
@@ -39,10 +44,12 @@ public class homing_missile_controller : MonoBehaviour
         if (gm.isPaused)
         {
             anim.speed=0;
+            ps.Pause();
         }
         else
         {
             anim.speed=1;
+            ps.Play();
         }
         
     }
