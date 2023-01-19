@@ -29,7 +29,8 @@ public class spawner : MonoBehaviour
             
             
             // spawn a missle
-            Instantiate(missle, aim.position, rot);
+            GameObject clone = Instantiate(missle, aim.position, rot) as GameObject;
+            clone.tag = "Human_Missile";
         }
 
         // destroy missle after 5 seconds
