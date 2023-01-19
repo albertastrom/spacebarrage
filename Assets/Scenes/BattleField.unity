@@ -232,6 +232,8 @@ GameObject:
   - component: {fileID: 1259705743}
   - component: {fileID: 1259705746}
   - component: {fileID: 1259705747}
+  - component: {fileID: 1259705748}
+  - component: {fileID: 1259705749}
   m_Layer: 0
   m_Name: HumanShip
   m_TagString: Human
@@ -360,6 +362,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gm: {fileID: 1824015057}
+--- !u!114 &1259705748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259705742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32e90ab6122d8d43992af7d39866f02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  gm: {fileID: 1824015057}
+--- !u!58 &1259705749
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259705742}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.33000004
 --- !u!1 &1414492371
 GameObject:
   m_ObjectHideFlags: 0
