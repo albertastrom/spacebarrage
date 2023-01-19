@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class aimcontroller : MonoBehaviour
+public class aimcontroller_p2 : MonoBehaviour
 {
 
     public float direction;
@@ -22,8 +22,8 @@ public class aimcontroller : MonoBehaviour
 
     void rotation()
     {
-        // if the left key is pressed, rotate left until 45 degrees has been reached
-        if (Input.GetKey(KeyCode.W))
+        // if the down key is pressed, rotate left until 45 degrees has been reached
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             if (direction < 45)
             {
@@ -31,13 +31,13 @@ public class aimcontroller : MonoBehaviour
             }
         }
 
-        // if the right key is pressed, rotate right until 45 degrees has been reached
-        else if (Input.GetKey(KeyCode.S))
+        // if the up key is pressed, rotate right until 45 degrees has been reached
+        else if (Input.GetKey(KeyCode.UpArrow))
         {
     
             if (direction > -45)
             {
-                direction -= .050f;
+                direction -= .05f;
             }
         }
         else
