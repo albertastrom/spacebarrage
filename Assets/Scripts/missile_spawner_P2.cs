@@ -27,7 +27,7 @@ public class missile_spawner_P2 : MonoBehaviour
             aim.Rotate(0, 0, 90);
             
             // spawn a missle
-            clone = Instantiate(missle, aim.position, aim.rotation);
+            GameObject clone = Instantiate(missle, aim.position, aim.rotation) as GameObject;
             clone.tag = "Alien_Missile";
         }
 
