@@ -24,19 +24,19 @@ public class aimcontroller : MonoBehaviour
     void rotation()
     {
         // if the left key is pressed, rotate left until 45 degrees has been reached
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.W))
         {
-            if (direction < 45)
+            if (direction < 90)
             {
                 direction += 1f;
             }
         }
 
         // if the right key is pressed, rotate right until 45 degrees has been reached
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
     
-            if (direction > -45)
+            if (direction > -90)
             {
                 direction -= 1f;
             }
