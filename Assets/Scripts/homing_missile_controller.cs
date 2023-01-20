@@ -21,7 +21,17 @@ public class homing_missile_controller : MonoBehaviour
     {
         gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Alien").transform;
+        // if tag is human missile then target alien ship
+        // if tag is alien missile then target human ship
+        if (gameObject.tag == "Human_Missile")
+        {
+            target = GameObject.FindGameObjectWithTag("Alien").transform;
+        }
+        else if (gameObject.tag == "Alien_Missile")
+        {
+            target = GameObject.FindGameObjectWithTag("Human").transform;
+        }
+        
         anim = GetComponent<Animator>();
         ps.Emit(1);
         ps.Play();
@@ -34,7 +44,7 @@ public class homing_missile_controller : MonoBehaviour
    void Update()
     {
 
-        if (transform.position.x > 10)
+        if (transform.position.x > 10 || transform.position.x < -10 || transform.position.y > 5 || transform.position.y < -5)
         {
             Destroy(gameObject);
             Debug.Log("Missile Destroyed - Out of Range");
