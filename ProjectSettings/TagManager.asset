@@ -9,6 +9,7 @@ TagManager:
   - Human_Missile
   - GameMaster
   - Alien_Missile
+  - Turn_Screen
   layers:
   - Default
   - TransparentFX

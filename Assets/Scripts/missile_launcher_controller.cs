@@ -24,7 +24,7 @@ public class missile_launcher_controller : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning)
+        if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning && !gm.isPaused)
         {
 
             Quaternion rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
