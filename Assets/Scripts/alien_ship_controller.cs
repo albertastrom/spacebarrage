@@ -7,14 +7,14 @@ public class alien_ship_controller : MonoBehaviour
 
     public GameMaster gm;
     int health;
-    // Animator anim;
+    Animator anim;
 
     public bool isAlive;
 
     
     void Start()
     {
-        // anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         health = 3;
         isAlive = true;
         
@@ -27,11 +27,11 @@ public class alien_ship_controller : MonoBehaviour
         
         if (gm.isPaused)
         {
-            // anim.speed=0;
+            anim.speed=0;
         }
         else
         {
-            // anim.speed=1;
+            anim.speed=1;
         }
 
 

@@ -10,13 +10,18 @@ public class missile_launcher_controller : MonoBehaviour
     public Transform aim;
     public GameMaster gm;
 
+    public bool selected;
+
     new string tag;
+
+    Quaternion rot;
 
  
     void Start()
     {
         tag = sender.gameObject.tag + "_Missile";
-        
+        selected = false;
+        rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
     
     }
 
@@ -24,17 +29,27 @@ public class missile_launcher_controller : MonoBehaviour
     void Update()
     {
         
+        
         if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning && !gm.isPaused)
         {
 
-            Quaternion rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
+            rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
             
+            selected = true;
             
-            GameObject missileClone = Instantiate(missle, aim.position, rot) as GameObject;
-            missileClone.tag = tag;
         }
 
         
+
         
+        
+    }
+
+    public void launchMissile()
+    {
+        Debug.Log("Missile launched");
+        GameObject missileClone = Instantiate(missle, aim.position, rot) as GameObject;
+        missileClone.tag = tag;
+        selected = false;
     }
 }
