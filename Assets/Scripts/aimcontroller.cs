@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Selection
+    {
+        Missile = 1,
+        Defense = 2,
+        Portal = 3
+    }
+
 public class aimcontroller : MonoBehaviour
 {
 
     public float direction;
     public float speed = 5f;
+    public Selection projectileSelection = Selection.Missile;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +26,7 @@ public class aimcontroller : MonoBehaviour
     void FixedUpdate()
     {
         rotation();
+        selection();
         // mouseRotate();
     }
 
@@ -47,11 +56,57 @@ public class aimcontroller : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, direction);
     }
 
+    //seleciton of missile, defense, or portal, rotating through using a and d keys
+    void selection()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            int mySelection = (int) projectileSelection;
+
+            if (mySelection > 1)
+            {
+                mySelection -= 1;
+            }
+
+            else if (mySelection == 1)
+            {
+                mySelection = 3;
+            }
+
+            projectileSelection = (Selection) mySelection;
+            Debug.Log(mySelection);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            int mySelection = (int) projectileSelection;
+
+            if (mySelection < 3)
+            {
+                mySelection += 1;
+            }
+
+            else if (mySelection == 3)
+            {
+                mySelection = 1;
+            }
+
+            projectileSelection = (Selection) mySelection;
+            Debug.Log(mySelection);
+
+        }
+    }
+
     void mouseRotate()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
+    }
+
+    public Selection getSelection()
+    {
+        return projectileSelection;
     }
 }
