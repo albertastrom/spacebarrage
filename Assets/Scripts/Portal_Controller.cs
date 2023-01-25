@@ -5,13 +5,15 @@ using UnityEngine;
 public class Portal_Controller : MonoBehaviour
 {
     public GameObject portal;
-    public GameObject origin;
+    private GameObject origin;
     private Rigidbody2D rb;
 
     GameMaster gm;
 
     private float speed = 5f;
-    private float distance = 100f;
+    private float distance = 5f;
+
+    new string tag;
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +59,11 @@ public class Portal_Controller : MonoBehaviour
         else
         {
 
-            Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+            GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+            tag = gameObject.tag + "_Portal";
+            newPortal.tag = tag;
             Destroy(gameObject);
+            Destroy(GameObject.FindGameObjectWithTag(tag));
             
         }
         
