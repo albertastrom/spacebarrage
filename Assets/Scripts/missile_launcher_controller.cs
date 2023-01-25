@@ -15,6 +15,9 @@ public class missile_launcher_controller : MonoBehaviour
     new string tag;
 
     Quaternion rot;
+    
+    public bool angle;
+
 
  
     void Start()
@@ -22,6 +25,7 @@ public class missile_launcher_controller : MonoBehaviour
         tag = sender.gameObject.tag + "_Missile";
         selected = false;
         rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
+        angle = false;
     
     }
 
@@ -30,19 +34,32 @@ public class missile_launcher_controller : MonoBehaviour
     {
         
         
-        if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning && !gm.isPaused)
+        if (Input.GetKeyDown(KeyCode.Space) && gm.isRunning && (gm.phase == "p1" || gm.phase == "p2") )
         {
 
             rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
             
-            selected = true;
-            
+            // this should be the spot that spaws the indicator showing where the missile is going to go
+            angle = true;
         }
 
         
 
         
+
         
+        
+    }
+
+    public void ready()
+    {
+        Debug.Log("Missile ready");
+        if (angle)
+        {
+            
+            selected = true;
+        }
+            
     }
 
     public void launchMissile()
@@ -51,5 +68,6 @@ public class missile_launcher_controller : MonoBehaviour
         GameObject missileClone = Instantiate(missle, aim.position, rot) as GameObject;
         missileClone.tag = tag;
         selected = false;
+        angle = false; 
     }
 }

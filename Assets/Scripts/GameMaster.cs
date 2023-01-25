@@ -27,6 +27,7 @@ public class GameMaster : MonoBehaviour
     public alien_ship_controller alien;
 
     public missile_launcher_controller humanMissileLauncher;
+    public missile_launcher_controller alienMissileLauncher;
     
     bool alienIsAlive;
     bool humanIsAlive;
@@ -35,16 +36,28 @@ public class GameMaster : MonoBehaviour
     GameObject turnScreen;
     GameObject UI;
     GameObject P1Aim;
+    GameObject P2Aim;
+
+    private Button humanButton;
+    private Button alienButton;
+    
     
     // Start is called before the first frame update
     void Start()
     {
         UI = canvas.transform.Find("UI").gameObject;
+        humanButton = UI.transform.Find("Player1").gameObject.transform.Find("Player 1 Ready").gameObject.GetComponent<Button>();
+        alienButton = UI.transform.Find("Player2").gameObject.transform.Find("Player 2 Ready").gameObject.GetComponent<Button>();
+
         P1Aim = GameObject.Find("HumanAimController").gameObject;
+        P2Aim = GameObject.Find("AlienAimController").gameObject;
+        
+        P1Aim.SetActive(false);
+        P2Aim.SetActive(false);
         phase = "p1 prompt";
         phaseHandler();
         isRunning = true;
-        isPaused = true;
+        pause();
     
     }
 
@@ -56,7 +69,6 @@ public class GameMaster : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                
                 phaseHandler();
             }
         }
@@ -67,10 +79,30 @@ public class GameMaster : MonoBehaviour
                 phaseHandler();
             }
         }
+        if (phase == "p2")
+        {
+            if (alienMissileLauncher.selected)
+            {
+                phaseHandler();
+            }
+        }
+
+
+        // if (phase == "p2")
+        // {
+        //     if (alienMissileLauncher.selected)
+        //     {
+        //         phaseHandler();
+        //     }
+        // }
 
         if (isRunning)
         {
             alive();
+
+            buttonHandler();
+
+
 
             if (Input.GetKeyDown(KeyCode.H))
             {
@@ -122,22 +154,27 @@ public class GameMaster : MonoBehaviour
             return;
         }
 
-        // run freeze missile function when "h" is pressed
-        
-
-        // freeze all missiles after 2 seconds
-        // if (Time.time > 2 && isRunning)
-        // {
-        //     freezeMissiles();
-        //     // isRunning = false;
-        // }
         
        
+    }
+
+    void buttonHandler()
+    {
+        if (humanMissileLauncher.angle)
+            humanButton.interactable = true;
+        else
+            humanButton.interactable = false;
+
+        if (alienMissileLauncher.angle)
+            alienButton.interactable = true;
+        else
+            alienButton.interactable = false;
     }
 
     // player one phase 
     void phaseHandler()
     {
+        // Player 1 Pre Outloop 
         if (phase == "p1 prompt")
         {
             turnScreen = canvas.transform.Find("Turn Screen").gameObject;
@@ -147,22 +184,25 @@ public class GameMaster : MonoBehaviour
             phase = "p1 pre";
         }
 
+        // Player 1 Phase
         else if (phase == "p1 pre")
         {
+            pause();
             GameObject text = turnScreen.transform.Find("Player 1 Prompt").gameObject;
             text.SetActive(false);
             turnScreen.SetActive(false);
-            isPaused = false;
+            // isPaused = false;
             GameObject p1UI = UI.transform.Find("Player1").gameObject;
             p1UI.SetActive(true);
             P1Aim.SetActive(true);
             phase = "p1";
         }
 
+        // Player 2 Pre Phase
         else if (phase == "p1")
         {
             // pause game
-            isPaused = true;
+            pause();
             GameObject p1UI = UI.transform.Find("Player1").gameObject;
             p1UI.SetActive(false);
             P1Aim.SetActive(false);
@@ -173,23 +213,29 @@ public class GameMaster : MonoBehaviour
             
         }
 
+        // Player 2 Phase
         else if (phase == "p2 pre")
         {
+            pause();
             GameObject text = turnScreen.transform.Find("Player 2 Prompt").gameObject;
             text.SetActive(false);
             turnScreen.SetActive(false);
-            isPaused = false;
+            // isPaused = false;
             GameObject p2UI = UI.transform.Find("Player2").gameObject;
             p2UI.SetActive(true);
+            P2Aim.SetActive(true);
+            
             phase = "p2";
         }
 
+        // Battle Phase
         else if (phase == "p2")
         {
             // pause game
-            
+            unpause();
             GameObject p2UI = UI.transform.Find("Player2").gameObject;
             p2UI.SetActive(false);
+            P2Aim.SetActive(false);
             
             // This is where the unified missile launch function will be called
             // missileLaunch();
@@ -197,29 +243,28 @@ public class GameMaster : MonoBehaviour
             Debug.Log("Battle");
             phase = "battle";
             humanMissileLauncher.launchMissile();
+            alienMissileLauncher.launchMissile();
+            // wait two seconds and then call the phase handler
+            Invoke("pause", .5f);
+            Invoke("phaseHandler", 3f); // this should be changed to waiting for the ready/continue button to be pressed in the gui 
+            
         }
+        // P1 Pre Phase in loop
         else if (phase == "battle")
         {
 
-            
+            pause();
             GameObject text = turnScreen.transform.Find("Player 1 Prompt").gameObject;
             turnScreen.SetActive(true);
             text.SetActive(true);
             phase = "p1 pre";
         }
         
-        // Turn on turn screen and player 1 prompt ui items 
-    
-        // pause game state 
-        // turn on player 1 ui
-
-        // wait for ready to be pressed
-        // disable turn screen for player 1
-        // unpause game state
-        
 
         
     }
+
+    
 
     void alive()
     {
@@ -316,4 +361,16 @@ public class GameMaster : MonoBehaviour
         }
         isPaused = false;
     }
+
+    public void pause()
+    {
+        isPaused = true;
+    }
+
+    public void unpause()
+    {
+        isPaused = false;
+    }
 }
+
+

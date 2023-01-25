@@ -25,6 +25,7 @@ public class human_ship_controller : MonoBehaviour
     {
         isDead();
         
+        // if (gm.isPaused && gm.phase != "p1" && gm.phase != "p2") - this line would allow for the animation to keep going in the missile paused phases 
         if (gm.isPaused)
         {
             anim.speed=0;
