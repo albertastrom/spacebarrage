@@ -6,47 +6,145 @@ public class aimcontroller : MonoBehaviour
 {
 
     public float direction;
-    public float speed = 0.05f;
+    public float speed = 5f;
+
+    public GameObject sender;
+
+    private string equipment;
+    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        direction = 0;
+        if (sender.tag == "Human")
+        {
+            direction = 0;
+        }
+        else if (sender.tag == "Alien")
+        {
+            direction = -180;
+        }
+        
+        equipment = "missile";
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    void FixedUpdate()
     {
-        rotation();
+        // if human
+        if (sender.tag == "Human")
+        {
+            rotation();
+        }
+        
+        else if (sender.tag == "Alien")
+        {
+            alienRotation();
+        }
+        
     }
+
 
     void rotation()
     {
-        // if the left key is pressed, rotate left until 45 degrees has been reached
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.W))
         {
-            if (direction < 45)
+            if (direction < 55)
             {
-                direction += .05f;
+                direction += 1f;
             }
         }
 
         // if the right key is pressed, rotate right until 45 degrees has been reached
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.S))
         {
     
-            if (direction > -45)
+            if (direction > -55)
             {
-                direction -= .050f;
+                direction -= 1f;
             }
         }
-        else
-        {
-            // stop rotating
-            // direction = 0;
-        }
+
+        
 
         // set z rotation of the object by the direction
         transform.eulerAngles = new Vector3(0, 0, direction);
+    }
+
+    // write the same function as above but all directions are reversed for the alien
+    void alienRotation()
+    {
+        // if the left key is pressed, rotate left until 45 degrees has been reached
+        if (Input.GetKey(KeyCode.W))
+        {
+            if (direction > -235)
+            {
+                direction -= 1f;
+            }
+        }
+
+        // if the right key is pressed, rotate right until 45 degrees has been reached
+        else if (Input.GetKey(KeyCode.S))
+        {
+    
+            if (direction < -125)
+            {
+                direction += 1f;
+            }
+        }
+
+        
+
+        // set z rotation of the object by the direction
+        transform.eulerAngles = new Vector3(0, 0, direction);
+    }
+
+    void equipmentSelection()
+    {
+        int i = 0;
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (i > 1)
+            {
+                i--;
+                Debug.Log(i);
+            }
+            
+            
+
+        }
+
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (i <= 2)
+            {
+                i++;
+                Debug.Log(i);
+            }
+        }
+
+        if (i == 0)
+        {
+            equipment = "missile";
+        }
+        else if (i == 1)
+        {
+            equipment = "flare";
+        }
+        else if (i == 2)
+        {
+            equipment = "portal";
+        }
+    }
+
+
+    void mouseRotate()
+    {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, speed * Time.deltaTime);
     }
 }
