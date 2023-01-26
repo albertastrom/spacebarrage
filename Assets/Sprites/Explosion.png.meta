@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3122d38cdf9282845912af18d95ee148
+guid: 66084ac916d8d3b42ab12cb8f11a917b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 96
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,29 +101,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alien_ship_spritesheet_0
+      name: Explosion_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 66
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 317e07e589e6b594d97ee7da9bc94cd5
-      internalID: -590784609
+      spriteID: a57dc21dfc37bfd4a9bff1eecc38aced
+      internalID: -581460725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_ship_spritesheet_1
+      name: Explosion_1
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 0
-        width: 64
-        height: 66
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,41 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3587fbc36530810489e63cc216850a2e
-      internalID: -220701168
+      spriteID: d5387e223642bf940bd2343985a7fdc2
+      internalID: 850062818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_ship_spritesheet_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 459bc3765c84e5e439237075dbf2431b
-      internalID: -2144135749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: alien_ship_spritesheet_3
+      name: Explosion_2
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 64
-        height: 66
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59e881936cf0f5a40a4eb5065571e3ad
-      internalID: 2059560602
+      spriteID: 2370b5956e5a68345a50a2bbc9452173
+      internalID: 730625305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_ship_spritesheet_4
+      name: Explosion_3
       rect:
         serializedVersion: 2
-        x: 256
+        x: 288
         y: 0
-        width: 64
-        height: 66
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ccc0c8bd667750f43968fad5aaab24ec
-      internalID: 1260532423
+      spriteID: 8c351e1c97045b5408775c3bc8062dbd
+      internalID: -998585995
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: alien_ship_spritesheet_5
+      name: Explosion_4
       rect:
         serializedVersion: 2
-        x: 320
+        x: 384
         y: 0
-        width: 64
-        height: 66
+        width: 96
+        height: 96
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,8 +203,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99145df161d33a64e8c2d9b058819272
-      internalID: -1126466592
+      spriteID: f4add4269b4123f44a40c89381df643d
+      internalID: -1980961978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d7b9f3d613c6e4f80c2ba6fe274b57
+      internalID: -647765729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_6
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02dbd3c9946864646820fecfd32ac8d9
+      internalID: 615202826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_7
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 182002e9533b97b49894b5cca6b25fa0
+      internalID: 2031207671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b06e04cc95bc834c86d5058f9515a85
+      internalID: -1713784927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_9
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272681426da0fb74ca2ba808c61d586f
+      internalID: -270164052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_10
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c487ea30916792844848bbbe08ca4543
+      internalID: -1705064639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 0
+        width: 96
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956ed5ad597de744f80aee2ed5165554
+      internalID: -1969589618
       vertices: []
       indices: 
       edges: []
@@ -253,12 +367,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      alien_ship_spritesheet_3: 2059560602
-      alien_ship_spritesheet_4: 1260532423
-      alien_ship_spritesheet_0: -590784609
-      alien_ship_spritesheet_5: -1126466592
-      alien_ship_spritesheet_2: -2144135749
-      alien_ship_spritesheet_1: -220701168
+      Explosion_6: 615202826
+      Explosion_7: 2031207671
+      Explosion_10: -1705064639
+      Explosion_1: 850062818
+      Explosion_4: -1980961978
+      Explosion_2: 730625305
+      Explosion_0: -581460725
+      Explosion_8: -1713784927
+      Explosion_5: -647765729
+      Explosion_11: -1969589618
+      Explosion_3: -998585995
+      Explosion_9: -270164052
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

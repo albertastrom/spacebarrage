@@ -23,7 +23,7 @@ public class Portal_Controller : MonoBehaviour
     
     }
 
-   void Update()
+    void Update()
     {
 
         if (transform.position.x > 10 || transform.position.x < -10 || transform.position.y > 5 || transform.position.y < -5)
@@ -53,9 +53,8 @@ public class Portal_Controller : MonoBehaviour
             rb.velocity = transform.up * speed;
         }
 
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) || transform.position.x > 0 || transform.position.y > 4 || transform.position.y < -4)
         {
-            Debug.Log("space released");
             GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             tag = gameObject.tag + "_Portal";
             newPortal.tag = tag;

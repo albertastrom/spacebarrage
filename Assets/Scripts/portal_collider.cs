@@ -47,8 +47,33 @@ public class portal_collider : MonoBehaviour
             }
         }
 
-        //if collide with other portal
+        //else if collide with other portal
 
-        //if collide with flare
+
+
+        //else if collide with flare
+        else if (col.gameObject.tag == "Human_Flare" || col.gameObject.tag == "Alien_Flare")
+        {
+            if (gameObject.tag == "Human_Portal")
+            {
+                alienPortalPosition = GameObject.FindGameObjectWithTag("Alien_Portal").transform;
+                col.gameObject.transform.position = new Vector2(alienPortalPosition.position.x, alienPortalPosition.position.y);
+
+                if (col.gameObject.tag == "Alien_Flare")
+                {
+                    col.gameObject.transform.Rotate(0, 0, 180);
+                }
+            }
+
+            else if (gameObject.tag == "Alien_Portal")
+            {
+                humanPortalPosition = GameObject.FindGameObjectWithTag("Human_Portal").transform;
+                col.gameObject.transform.position = new Vector2(humanPortalPosition.position.x, humanPortalPosition.position.y);
+                if (col.gameObject.tag == "Human_Flare")
+                {
+                    col.gameObject.transform.Rotate(0, 0, 180);
+                }
+            }
+        }
     }
 }
