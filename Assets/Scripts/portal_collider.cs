@@ -48,7 +48,10 @@ public class portal_collider : MonoBehaviour
         }
 
         //else if collide with other portal
-
+        else if (col.gameObject.tag == "Human" || col.gameObject.tag == "Alien")
+        {
+            Destroy(col.gameObject);
+        }
 
 
         //else if collide with flare

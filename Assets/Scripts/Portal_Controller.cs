@@ -48,12 +48,36 @@ public class Portal_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (origin.tag == "Human")
+        {
+            if (transform.position.x > 0 || transform.position.y > 4 || transform.position.y < -4)
+            {
+                GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+                tag = gameObject.tag + "_Portal";
+                newPortal.tag = tag;
+                Destroy(gameObject);
+                Destroy(GameObject.FindGameObjectWithTag(tag));
+            }
+        }
+
+        else if (origin.tag == "Alien")
+        {
+            if (transform.position.x < 0 || transform.position.y > 4 || transform.position.y < -4)
+            {
+                GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
+                tag = gameObject.tag + "_Portal";
+                newPortal.tag = tag;
+                Destroy(gameObject);
+                Destroy(GameObject.FindGameObjectWithTag(tag));
+            }
+        }
+
         if (Input.GetKey(KeyCode.Space))
         {
             rb.velocity = transform.up * speed;
         }
-
-        else if (Input.GetKeyUp(KeyCode.Space) || transform.position.x > 0 || transform.position.y > 4 || transform.position.y < -4)
+        
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
             GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             tag = gameObject.tag + "_Portal";
@@ -62,6 +86,7 @@ public class Portal_Controller : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag(tag));
             
         }
+
         
     }
 
