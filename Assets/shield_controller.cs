@@ -33,6 +33,12 @@ public class shield_controller : MonoBehaviour
             shield -= 1;
             Debug.Log("Shield hit");
         }
+
+        if ((col.gameObject.tag == "Human_Flare" && parentShip.tag == "Alien") || (col.gameObject.tag == "Alien_Flare" && parentShip.tag == "Human"))
+        {
+            Destroy(col.gameObject);
+            Debug.Log("Flare Destroyed - Shield");
+        }
     }
 
     public int getShield()

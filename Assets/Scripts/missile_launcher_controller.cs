@@ -9,6 +9,8 @@ public class missile_launcher_controller : MonoBehaviour
     public GameObject flare;
 
     public GameObject sender;
+
+    public aimcontroller aim_controller;
     public Transform aim;
     public GameMaster gm;
 
@@ -57,11 +59,15 @@ public class missile_launcher_controller : MonoBehaviour
     {
         Debug.Log("Missile ready");
         if (angle)
-        {
-            
+        {   
             selected = true;
         }
             
+    }
+
+    public string getEquipment()
+    {
+        return aim_controller.getEquipment();
     }
 
     public void launchMissile()

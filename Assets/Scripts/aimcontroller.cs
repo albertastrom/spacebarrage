@@ -11,6 +11,8 @@ public class aimcontroller : MonoBehaviour
     public GameObject sender;
 
     private string equipment;
+
+    private int i;
     
 
 
@@ -26,9 +28,15 @@ public class aimcontroller : MonoBehaviour
             direction = -180;
         }
         
-        equipment = "missile";
+        i = 1;
+        
     }
 
+    void Update()
+    {
+        
+        equipmentSelection();
+    }
     
     void FixedUpdate()
     {
@@ -45,6 +53,10 @@ public class aimcontroller : MonoBehaviour
         
     }
 
+    public string getEquipment()
+    {
+        return equipment;
+    }
 
     void rotation()
     {
@@ -102,7 +114,7 @@ public class aimcontroller : MonoBehaviour
 
     void equipmentSelection()
     {
-        int i = 0;
+        
 
         if (Input.GetKeyDown(KeyCode.A))
         {
@@ -116,7 +128,7 @@ public class aimcontroller : MonoBehaviour
 
         }
 
-        else if (Input.GetKeyDown(KeyCode.D))
+         if (Input.GetKeyDown(KeyCode.D))
         {
             if (i <= 2)
             {
@@ -125,15 +137,15 @@ public class aimcontroller : MonoBehaviour
             }
         }
 
-        if (i == 0)
+        if (i == 1)
         {
             equipment = "missile";
         }
-        else if (i == 1)
+        else if (i == 2)
         {
             equipment = "flare";
         }
-        else if (i == 2)
+        else if (i == 3)
         {
             equipment = "portal";
         }

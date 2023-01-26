@@ -6,7 +6,7 @@ public class homing_missile_controller : MonoBehaviour
 {
     private Rigidbody2D rb;
 
-    private Transform target;
+    public Transform target;
 
     GameMaster gm;
     Animator anim;

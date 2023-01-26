@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1653296261049861035}
   - component: {fileID: 1309486371028834805}
+  - component: {fileID: 7383253874197644663}
   m_Layer: 0
   m_Name: FlareDetection
   m_TagString: Untagged
@@ -42,12 +43,24 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 1
+--- !u!114 &7383253874197644663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487132743809612713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0644edd642db6464bab8af8fbc6ceeeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7327090074754333129
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +161,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feab3441942e54061afc777f586489c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  sender: {fileID: 0}
+  flareDetection: {fileID: 0}
 --- !u!50 &55956431269208385
 Rigidbody2D:
   serializedVersion: 4

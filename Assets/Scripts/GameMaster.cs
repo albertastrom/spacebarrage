@@ -43,6 +43,7 @@ public class GameMaster : MonoBehaviour
 
     private Button battleButton;
     private GameObject battleView;
+
     
     
     // Start is called before the first frame update
@@ -144,11 +145,15 @@ public class GameMaster : MonoBehaviour
             {
                 freezeAlienMissiles();
                 freezeHumanMissiles();
+                freezeAlienFlares();
+                freezeHumanFlares();
             }
             else
             {
                 unfreezeAlienMissiles();
                 unfreezeHumanMissiles();
+                unfreezeAlienFlares();
+                unfreezeHumanFlares();
             }
 
             // if y is pressed, phase handler is called
@@ -192,6 +197,7 @@ public class GameMaster : MonoBehaviour
         // Player 1 Pre Outloop 
         if (phase == "p1 prompt")
         {
+            Debug.Log("PLAYER ONE PRE PHASE OUT");
             turnScreen = canvas.transform.Find("Turn Screen").gameObject;
             GameObject text = turnScreen.transform.Find("Player 1 Prompt").gameObject;
             turnScreen.SetActive(true);
@@ -202,6 +208,7 @@ public class GameMaster : MonoBehaviour
         // Player 1 Phase
         else if (phase == "p1 pre")
         {
+            Debug.Log("PLAYER ONE PHASE");
             pause();
             GameObject text = turnScreen.transform.Find("Player 1 Prompt").gameObject;
             text.SetActive(false);
@@ -216,6 +223,7 @@ public class GameMaster : MonoBehaviour
         // Player 2 Pre Phase
         else if (phase == "p1")
         {
+            Debug.Log("PLAYER TWO PRE PHASE");
             // pause game
             pause();
             GameObject p1UI = UI.transform.Find("Player1").gameObject;
@@ -231,6 +239,7 @@ public class GameMaster : MonoBehaviour
         // Player 2 Phase
         else if (phase == "p2 pre")
         {
+            Debug.Log("PLAYER TWO PHASE");
             pause();
             GameObject text = turnScreen.transform.Find("Player 2 Prompt").gameObject;
             text.SetActive(false);
@@ -239,7 +248,6 @@ public class GameMaster : MonoBehaviour
             GameObject p2UI = UI.transform.Find("Player2").gameObject;
             p2UI.SetActive(true);
             P2Aim.SetActive(true);
-            
             phase = "p2";
         }
 
@@ -259,12 +267,35 @@ public class GameMaster : MonoBehaviour
             phase = "battle";
             // humanMissileLauncher.launchMissile();
             // alienMissileLauncher.launchMissile();
-            humanMissileLauncher.launchFlare();
+
+            if (humanMissileLauncher.getEquipment() == "flare")
+            {
+                Debug.Log("Flare Launched - Human");
+                humanMissileLauncher.launchFlare();
+            }
+            if (humanMissileLauncher.getEquipment() == "missile")
+            {
+                Debug.Log("Missile Launched - Human");
+                humanMissileLauncher.launchMissile();
+            }
+            if (alienMissileLauncher.getEquipment() == "flare")
+            {
+                Debug.Log("Flare Launched - Alien");
+                alienMissileLauncher.launchFlare();
+            }
+            if (alienMissileLauncher.getEquipment() == "missile")
+            {
+                Debug.Log("Missile Launched - Alien");
+                alienMissileLauncher.launchMissile();
+            }
+
+            Debug.Log(humanMissileLauncher.getEquipment());
+            Debug.Log(alienMissileLauncher.getEquipment());
             // wait two seconds and then call the phase handler
 
             // enable the battle gui 
             battleView.SetActive(true);
-            Invoke("pause", .5f);
+            Invoke("pause", 3.5f);
             // enable button here 
             battleButton.interactable = true;
             // Invoke("phaseHandler", 3f); // this should be changed to waiting for the ready/continue button to be pressed in the gui 
@@ -273,6 +304,7 @@ public class GameMaster : MonoBehaviour
         // P1 Pre Phase in loop
         else if (phase == "battle")
         {
+            Debug.Log("PLAYER ONE PRE PHASE");
             battleView.SetActive(false);
             battleButton.interactable = false;
             pause();
@@ -439,6 +471,71 @@ public class GameMaster : MonoBehaviour
         }
         isPaused = false;
     }
+
+    public void freezeHumanFlares()
+    {
+        // Debug.Log("Freezing missiles");
+        GameObject[] flares = GameObject.FindGameObjectsWithTag("Human_Flare");
+        // if missiles have been destroyed, return 0
+        if (flares == null)
+        {
+            return;
+        }
+        foreach (GameObject flare in flares)
+        {
+            flare.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        isPaused = true;
+    }
+
+    public void freezeAlienFlares()
+    {
+        // Debug.Log("Freezing missiles");
+        GameObject[] flares = GameObject.FindGameObjectsWithTag("Alien_Flare");
+        // if missiles have been destroyed, return 0
+        if (flares == null)
+        {
+            return;
+        }
+        foreach (GameObject flare in flares)
+        {
+            flare.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+        isPaused = true;
+    }
+
+    public void unfreezeHumanFlares()
+    {
+        GameObject[] flares = GameObject.FindGameObjectsWithTag("Human_Flare");
+        // if missiles have been destroyed, return 0
+        if (flares == null)
+        {
+            return;
+        }
+        foreach (GameObject flare in flares)
+        {
+            flare.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+            flare.GetComponent<Rigidbody2D>().velocity = transform.up * 3;
+        
+        }
+        isPaused = false;
+    }
+
+    public void unfreezeAlienFlares()
+    {
+        GameObject[] flares = GameObject.FindGameObjectsWithTag("Alien_Flare");
+        // if missiles have been destroyed, return 0
+        if (flares == null)
+        {
+            return;
+        }
+        foreach (GameObject flare in flares)
+        {
+            flare.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        }
+        isPaused = false;
+    }
+    
 
     public void pause()
     {

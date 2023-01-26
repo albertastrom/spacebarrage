@@ -5,12 +5,16 @@ using UnityEngine;
 public class flare_controller : MonoBehaviour
 {
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
+
+    public GameObject sender;
+    public GameObject flareDetection;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.up * 3;
         
     }
 
@@ -23,5 +27,28 @@ public class flare_controller : MonoBehaviour
             Debug.Log("Flare Destroyed - Out of Range");
 
         }
+
+        
     }
+
+    void FixedUpdate()
+    {
+        rb.velocity = transform.up * 3;
+    }
+
+    // on Collision
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Human_Missile" || col.gameObject.tag == "Alien_Missile")
+        {
+            
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+            Debug.Log("Flare Destroyed - Missile Collision");
+        }
+    }
+
+    
+
+
 }
