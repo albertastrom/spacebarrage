@@ -49,7 +49,7 @@ public class missile_launcher_controller : MonoBehaviour
                 Quaternion rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
 
                 GameObject humanPortal = Instantiate(portal, aim.position, rot) as GameObject;
-                humanPortal.tag = sender.tag;
+                humanPortal.tag = sender.tag + "_Portal";
 
             }
             

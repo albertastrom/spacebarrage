@@ -14,12 +14,14 @@ public class Portal_Controller : MonoBehaviour
 
     new string tag;
 
+    private float distance;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody2D>();
-        origin = GameObject.FindGameObjectWithTag(gameObject.tag);
+        origin = GameObject.FindGameObjectWithTag("Human");
     
     }
 
@@ -48,12 +50,14 @@ public class Portal_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
+        distance = Vector2.Distance(origin.transform.position, gameObject.transform.position);
+
         if (origin.tag == "Human")
         {
             if (transform.position.x > 0 || transform.position.y > 4 || transform.position.y < -4)
             {
                 GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
-                tag = gameObject.tag + "_Portal";
+                tag = gameObject.tag;
                 newPortal.tag = tag;
                 Destroy(gameObject);
                 Destroy(GameObject.FindGameObjectWithTag(tag));
@@ -65,7 +69,7 @@ public class Portal_Controller : MonoBehaviour
             if (transform.position.x < 0 || transform.position.y > 4 || transform.position.y < -4)
             {
                 GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
-                tag = gameObject.tag + "_Portal";
+                tag = gameObject.tag;
                 newPortal.tag = tag;
                 Destroy(gameObject);
                 Destroy(GameObject.FindGameObjectWithTag(tag));
@@ -77,10 +81,10 @@ public class Portal_Controller : MonoBehaviour
             rb.velocity = transform.up * speed;
         }
         
-        else if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && distance > 2)
         {
             GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
-            tag = gameObject.tag + "_Portal";
+            tag = gameObject.tag;
             newPortal.tag = tag;
             Destroy(gameObject);
             Destroy(GameObject.FindGameObjectWithTag(tag));
