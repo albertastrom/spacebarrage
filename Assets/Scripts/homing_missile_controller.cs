@@ -78,6 +78,18 @@ public class homing_missile_controller : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    // ON collision
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        // Destory misile if it hits a another missile of the other kind
+        if ((col.gameObject.tag == "Alien_Missile" && gameObject.tag == "Human_Missile") || (col.gameObject.tag == "Human_Missile" && gameObject.tag == "Alien_Missile"))
+        {
+            Destroy(col.gameObject);
+            Destroy(gameObject);
+            Debug.Log("Missile Destroyed - Missile Collision");
+        }
+    }
+
     void onDestory()
     {
         // particle effect 

@@ -7,11 +7,16 @@ public class shield_controller : MonoBehaviour
 
     int shield;
 
+
+    GameMaster gm;
     public GameObject parentShip;
+    Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
+        anim = GetComponent<Animator>();
         shield = 3; 
     }
 
@@ -19,6 +24,14 @@ public class shield_controller : MonoBehaviour
     void Update()
     {
         alive();
+        if (gm.isPaused)
+        {
+            anim.speed=0;
+        }
+        else
+        {
+            anim.speed=1;
+        }
         
     }
 
@@ -44,6 +57,7 @@ public class shield_controller : MonoBehaviour
     public int getShield()
     {
         return shield;
+        
     }
 
     void alive()

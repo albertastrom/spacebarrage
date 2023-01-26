@@ -8,6 +8,8 @@ public class flare_detection : MonoBehaviour
 
     Transform originalTarget;
 
+    public GameObject flare;
+
 
     private float timeRemaining;
     // Start is called before the first frame update
@@ -53,7 +55,9 @@ public class flare_detection : MonoBehaviour
     // on trigger exit
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Human_Missile" || col.gameObject.tag == "Alien_Missile")
+        
+        Debug.Log(gameObject.tag);
+        if ((col.gameObject.tag == "Human_Missile" && flare.gameObject.tag == "Alien_Flare") || (col.gameObject.tag == "Alien_Missile" && flare.gameObject.tag == "Human_Flare"))
         {
             Debug.Log("Missile Detected - Exit");
             homing_missile_controller missile = col.gameObject.GetComponent<homing_missile_controller>();

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7480deef695d442769cc6d70f6ea16bd
+guid: 746908310a45a4a56a141ab6d27d4ac3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shield_animation_0
+      name: alien_ship_spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f16555b4913be41b4b160a13d4a8ad2f
-      internalID: 1479312115
+      spriteID: c653fdae4166a4787ab0528465f09b7f
+      internalID: -1222426123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shield_animation_1
+      name: alien_ship_spritesheet_1
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7078e9e7078e64235bf7a0f340c477cd
-      internalID: 1447009238
+      spriteID: 42e216b32156f4ed396681a008da686b
+      internalID: -895368711
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shield_animation_2
+      name: alien_ship_spritesheet_2
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 64
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,20 +173,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d68898bca952b494a996a1c4cc8367d2
-      internalID: -134608955
+      spriteID: 34834d65f5c9b4b4a9ffa080d8adcaae
+      internalID: -1565863593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shield_animation_3
+      name: alien_ship_spritesheet_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
         width: 64
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,20 +194,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8501ba02aa824475e84ca3477d9c6474
-      internalID: 297467139
+      spriteID: c7f8a74942be2480c9d0642d7ac8234b
+      internalID: 1731809379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shield_animation_4
+      name: alien_ship_spritesheet_4
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 64
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,20 +215,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0501c1c3d72e6414b8a68c2e920f5a5c
-      internalID: -308303181
+      spriteID: a54511f8a24bd45beb59656cd475a767
+      internalID: 941608675
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: shield_animation_5
+      name: alien_ship_spritesheet_5
       rect:
         serializedVersion: 2
         x: 320
         y: 0
         width: 64
-        height: 64
+        height: 66
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -236,92 +236,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6202962a63ce476e807031a6b90f3b8
-      internalID: 1852142153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shield_animation_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 89883b47b42514220be3cda0eb378b26
-      internalID: -1630606075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shield_animation_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ebc266983bee04976ba02735704f4402
-      internalID: 1672023676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shield_animation_8
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41caff796664943b9a6c63466110cbf3
-      internalID: -1013031007
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: shield_animation_9
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f329ae6951f1e42b2834b458a416f4bb
-      internalID: 211704502
+      spriteID: 1bf030086318f430380ecddc3b429e79
+      internalID: 1842876655
       vertices: []
       indices: 
       edges: []
@@ -337,16 +253,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      shield_animation_1: 1447009238
-      shield_animation_5: 1852142153
-      shield_animation_4: -308303181
-      shield_animation_8: -1013031007
-      shield_animation_2: -134608955
-      shield_animation_6: -1630606075
-      shield_animation_0: 1479312115
-      shield_animation_3: 297467139
-      shield_animation_7: 1672023676
-      shield_animation_9: 211704502
+      alien_ship_spritesheet_3: 1731809379
+      alien_ship_spritesheet_4: 941608675
+      alien_ship_spritesheet_0: -1222426123
+      alien_ship_spritesheet_5: 1842876655
+      alien_ship_spritesheet_2: -1565863593
+      alien_ship_spritesheet_1: -895368711
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

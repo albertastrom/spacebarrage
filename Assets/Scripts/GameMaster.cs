@@ -295,7 +295,7 @@ public class GameMaster : MonoBehaviour
 
             // enable the battle gui 
             battleView.SetActive(true);
-            Invoke("pause", 3.5f);
+            Invoke("pause", .6f);
             // enable button here 
             battleButton.interactable = true;
             // Invoke("phaseHandler", 3f); // this should be changed to waiting for the ready/continue button to be pressed in the gui 
@@ -355,9 +355,28 @@ public class GameMaster : MonoBehaviour
         GameObject humanShipStatus = UI.transform.Find("Player1").gameObject.transform.Find("P1 Ship Status").gameObject;
         Text humanHealthBar = humanShipStatus.transform.Find("P1 Health").gameObject.GetComponent<Text>();
         Text humanShieldBar = humanShipStatus.transform.Find("P1 Shield").gameObject.GetComponent<Text>();
+        Text humanEquipment = humanShipStatus.transform.Find("P1 Equipment").gameObject.transform.Find("P1 Equip").gameObject.GetComponent<Text>();
 
         humanHealthBar.text = "<color=#ef233c>HP</color> " + humanHealth + "/2";
         humanShieldBar.text = "<color=#90E0EF>SP</color> " + humanShield + "/3";
+        
+        string equip;
+        equip = FirstLetterToUpper(humanMissileLauncher.getEquipment());
+        if (equip == "Missile")
+        {
+            equip = "<color=#FB3640>Missile</color>";
+        }
+
+        if (equip == "Flare")
+        {
+            equip = "<color=#247BA0>Flare</color>";
+        }
+
+        if (equip == "Portal")
+        {
+            equip = "<color=#E2E2E2>Portal</color>";
+        }
+        humanEquipment.text = equip;
     
     }
 
@@ -370,9 +389,45 @@ public class GameMaster : MonoBehaviour
         GameObject alienShipStatus = UI.transform.Find("Player2").gameObject.transform.Find("P2 Ship Status").gameObject;
         Text alienHealthBar = alienShipStatus.transform.Find("P2 Health").gameObject.GetComponent<Text>();
         Text alienShieldBar = alienShipStatus.transform.Find("P2 Shield").gameObject.GetComponent<Text>();
+        Text alienEquipment = alienShipStatus.transform.Find("P2 Equipment").gameObject.transform.Find("P2 Equip").gameObject.GetComponent<Text>();
 
         alienHealthBar.text = "<color=#ef233c>HP</color> " + alienHealth + "/2";
         alienShieldBar.text = "<color=#90E0EF>SP</color> " + alienShield + "/3";
+        string equip;
+        equip = FirstLetterToUpper(alienMissileLauncher.getEquipment());
+        if (equip == "Missile")
+        {
+            equip = "<color=#FB3640>Missile</color>";
+        }
+
+        if (equip == "Flare")
+        {
+            equip = "<color=#247BA0>Flare</color>";
+        }
+
+        if (equip == "Portal")
+        {
+            equip = "<color=#E2E2E2>Portal</color>";
+        }
+
+        alienEquipment.text = equip;
+
+        
+        // Captialize the first letter of the equipment string
+
+
+
+    }
+
+    public string FirstLetterToUpper(string str)
+    {
+        if (str == null)
+            return null;
+
+        if (str.Length > 1)
+            return char.ToUpper(str[0]) + str.Substring(1);
+
+        return str.ToUpper();
     }
     
 
