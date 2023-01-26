@@ -8,6 +8,8 @@ public class missile_launcher_controller : MonoBehaviour
 
     public GameObject flare;
 
+    public GameObject portal;
+
     public GameObject sender;
 
     public aimcontroller aim_controller;
@@ -84,6 +86,15 @@ public class missile_launcher_controller : MonoBehaviour
         Debug.Log("Flare launched");
         GameObject flareClone = Instantiate(flare, aim.position, rot) as GameObject;
         flareClone.tag = sender.gameObject.tag + "_Flare";
+        selected = false;
+        angle = false; 
+    }
+
+    public void launchPortal()
+    {
+        Debug.Log("Portal launched");
+        GameObject portalClone = Instantiate(portal, aim.position, rot) as GameObject;
+        portalClone.tag = sender.gameObject.tag + "_Portal";
         selected = false;
         angle = false; 
     }

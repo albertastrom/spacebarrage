@@ -278,6 +278,11 @@ public class GameMaster : MonoBehaviour
                 Debug.Log("Missile Launched - Human");
                 humanMissileLauncher.launchMissile();
             }
+            if (humanMissileLauncher.getEquipment() == "portal")
+            {
+                Debug.Log("Portal Launched - Human");
+                humanMissileLauncher.launchPortal();
+            }
             if (alienMissileLauncher.getEquipment() == "flare")
             {
                 Debug.Log("Flare Launched - Alien");
@@ -287,6 +292,11 @@ public class GameMaster : MonoBehaviour
             {
                 Debug.Log("Missile Launched - Alien");
                 alienMissileLauncher.launchMissile();
+            }
+            if (alienMissileLauncher.getEquipment() == "portal")
+            {
+                Debug.Log("Portal Launched - Alien");
+                alienMissileLauncher.launchPortal();
             }
 
             Debug.Log(humanMissileLauncher.getEquipment());

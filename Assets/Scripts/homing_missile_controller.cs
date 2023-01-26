@@ -7,6 +7,7 @@ public class homing_missile_controller : MonoBehaviour
     private Rigidbody2D rb;
     public bool teleported;
     public Transform target;
+    public GameObject explosion;
 
     GameMaster gm;
     Animator anim;
@@ -93,8 +94,7 @@ public class homing_missile_controller : MonoBehaviour
 
     void onDestory()
     {
-        // particle effect 
-        // sound effect
-        
+        Quaternion rot = Quaternion.Euler(0, 0, 0);
+        Instantiate(explosion, rb.transform.position, rot);
     }
 }
