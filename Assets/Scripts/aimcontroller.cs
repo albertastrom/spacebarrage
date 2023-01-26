@@ -22,11 +22,14 @@ public class aimcontroller : MonoBehaviour
         direction = 0;
     }
 
+    void Update()
+    {
+        selection();
+    }
     
     void FixedUpdate()
     {
         rotation();
-        selection();
         // mouseRotate();
     }
 

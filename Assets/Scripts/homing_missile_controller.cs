@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class homing_missile_controller : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public bool teleported;
+    public Rigidbody2D rb;
 
-    private Transform target;
+    public Transform target;
 
     GameMaster gm;
     Animator anim;
@@ -19,6 +20,7 @@ public class homing_missile_controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        teleported = false;
         gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody2D>();
         // if tag is human missile then target alien ship
