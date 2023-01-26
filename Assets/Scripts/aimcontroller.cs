@@ -46,7 +46,7 @@ public class aimcontroller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            if (direction < 45)
+            if (direction < 55)
             {
                 direction += 1f;
             }
@@ -56,7 +56,7 @@ public class aimcontroller : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
         {
     
-            if (direction > -45)
+            if (direction > -55)
             {
                 direction -= 1f;
             }
@@ -74,7 +74,7 @@ public class aimcontroller : MonoBehaviour
         // if the left key is pressed, rotate left until 45 degrees has been reached
         if (Input.GetKey(KeyCode.W))
         {
-            if (direction > -225)
+            if (direction > -235)
             {
                 direction -= 1f;
             }
@@ -84,7 +84,7 @@ public class aimcontroller : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))
         {
     
-            if (direction < -135)
+            if (direction < -125)
             {
                 direction += 1f;
             }

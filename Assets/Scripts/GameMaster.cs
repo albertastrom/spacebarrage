@@ -40,6 +40,9 @@ public class GameMaster : MonoBehaviour
 
     private Button humanButton;
     private Button alienButton;
+
+    private Button battleButton;
+    private GameObject battleView;
     
     
     // Start is called before the first frame update
@@ -48,6 +51,14 @@ public class GameMaster : MonoBehaviour
         UI = canvas.transform.Find("UI").gameObject;
         humanButton = UI.transform.Find("Player1").gameObject.transform.Find("Player 1 Ready").gameObject.GetComponent<Button>();
         alienButton = UI.transform.Find("Player2").gameObject.transform.Find("Player 2 Ready").gameObject.GetComponent<Button>();
+        battleButton = UI.transform.Find("BattleView").gameObject.transform.Find("Battle Ready").gameObject.GetComponent<Button>();
+
+        battleView = UI.transform.Find("BattleView").gameObject;
+        battleView.SetActive(false);
+        
+
+        battleButton.interactable = false;
+
 
         P1Aim = GameObject.Find("HumanAimController").gameObject;
         P2Aim = GameObject.Find("AlienAimController").gameObject;
@@ -245,14 +256,20 @@ public class GameMaster : MonoBehaviour
             humanMissileLauncher.launchMissile();
             alienMissileLauncher.launchMissile();
             // wait two seconds and then call the phase handler
+
+            // enable the battle gui 
+            battleView.SetActive(true);
             Invoke("pause", .5f);
-            Invoke("phaseHandler", 3f); // this should be changed to waiting for the ready/continue button to be pressed in the gui 
+            // enable button here 
+            battleButton.interactable = true;
+            // Invoke("phaseHandler", 3f); // this should be changed to waiting for the ready/continue button to be pressed in the gui 
             
         }
         // P1 Pre Phase in loop
         else if (phase == "battle")
         {
-
+            battleView.SetActive(false);
+            battleButton.interactable = false;
             pause();
             GameObject text = turnScreen.transform.Find("Player 1 Prompt").gameObject;
             turnScreen.SetActive(true);
@@ -262,6 +279,11 @@ public class GameMaster : MonoBehaviour
         
 
         
+    }
+
+    public void ready()
+    {
+        phaseHandler();
     }
 
     
