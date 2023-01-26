@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class homing_missile_controller : MonoBehaviour
 {
-    private Rigidbody2D rb;
     public bool teleported;
+    private Rigidbody2D rb;
     public Transform target;
     public GameObject explosion;
 
