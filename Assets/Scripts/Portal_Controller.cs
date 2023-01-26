@@ -35,26 +35,11 @@ public class Portal_Controller : MonoBehaviour
 
         }
 
-        // if (gm.isPaused) 
-        // {
-        //     anim.speed=0;
-        //     ps.Pause();
-        // }
-        // else
-        // {
-        //     anim.speed=1;
-        //     ps.Play();
-        // }
-        
-    }
-
-    void FixedUpdate()
-    {
         distance = Vector2.Distance(origin.transform.position, gameObject.transform.position);
 
         if (origin.tag == "Human")
         {
-            if (transform.position.x > 0 || transform.position.y > 4 || transform.position.y < -4)
+            if (transform.position.x > -1 || transform.position.y > 4 || transform.position.y < -4)
             {
                 GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 tag = gameObject.tag;
@@ -66,7 +51,7 @@ public class Portal_Controller : MonoBehaviour
 
         else if (origin.tag == "Alien")
         {
-            if (transform.position.x < 0 || transform.position.y > 4 || transform.position.y < -4)
+            if (transform.position.x < 1 || transform.position.y > 4 || transform.position.y < -4)
             {
                 GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
                 tag = gameObject.tag;
@@ -90,6 +75,22 @@ public class Portal_Controller : MonoBehaviour
             Destroy(GameObject.FindGameObjectWithTag(tag));
             
         }
+        // if (gm.isPaused) 
+        // {
+        //     anim.speed=0;
+        //     ps.Pause();
+        // }
+        // else
+        // {
+        //     anim.speed=1;
+        //     ps.Play();
+        // }
+        
+    }
+
+    void FixedUpdate()
+    {
+        
 
         
     }
