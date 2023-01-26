@@ -98,6 +98,10 @@ public class GameMaster : MonoBehaviour
             }
         }
 
+        p1UIController();
+        p2UIController();
+        battleUIController();
+
 
         // if (phase == "p2")
         // {
@@ -253,8 +257,9 @@ public class GameMaster : MonoBehaviour
             // The UI will be the multiplayer UI
             Debug.Log("Battle");
             phase = "battle";
-            humanMissileLauncher.launchMissile();
-            alienMissileLauncher.launchMissile();
+            // humanMissileLauncher.launchMissile();
+            // alienMissileLauncher.launchMissile();
+            humanMissileLauncher.launchFlare();
             // wait two seconds and then call the phase handler
 
             // enable the battle gui 
@@ -286,6 +291,57 @@ public class GameMaster : MonoBehaviour
         phaseHandler();
     }
 
+    void battleUIController()
+    {
+        int humanHealth = human.health;
+        int humanShield = human.shield;
+        int alienHealth = alien.health;
+        int alienShield = alien.shield;
+
+        GameObject humanShipStatus = UI.transform.Find("BattleView").gameObject.transform.Find("P1 Ship Status").gameObject;
+        Text humanHealthBar = humanShipStatus.transform.Find("P1 Health").gameObject.GetComponent<Text>();
+        Text humanShieldBar = humanShipStatus.transform.Find("P1 Shield").gameObject.GetComponent<Text>();
+
+        GameObject alienShipStatus = UI.transform.Find("BattleView").gameObject.transform.Find("P2 Ship Status").gameObject;
+        Text alienHealthBar = alienShipStatus.transform.Find("P2 Health").gameObject.GetComponent<Text>();
+        Text alienShieldBar = alienShipStatus.transform.Find("P2 Shield").gameObject.GetComponent<Text>();
+
+        humanHealthBar.text = "<color=#ef233c>HP</color> " + humanHealth + "/2";
+        humanShieldBar.text = "<color=#90E0EF>SP</color> " + humanShield + "/3";
+
+        alienHealthBar.text = "<color=#ef233c>HP</color> " + alienHealth + "/2";
+        alienShieldBar.text = "<color=#90E0EF>SP</color> " + alienShield + "/3";
+
+    }
+
+    void p1UIController()
+    {
+        int humanHealth = human.health;
+        int humanShield = human.shield;
+        
+
+        GameObject humanShipStatus = UI.transform.Find("Player1").gameObject.transform.Find("P1 Ship Status").gameObject;
+        Text humanHealthBar = humanShipStatus.transform.Find("P1 Health").gameObject.GetComponent<Text>();
+        Text humanShieldBar = humanShipStatus.transform.Find("P1 Shield").gameObject.GetComponent<Text>();
+
+        humanHealthBar.text = "<color=#ef233c>HP</color> " + humanHealth + "/2";
+        humanShieldBar.text = "<color=#90E0EF>SP</color> " + humanShield + "/3";
+    
+    }
+
+    void p2UIController()
+    {
+        int alienHealth = alien.health;
+        int alienShield = alien.shield;
+        
+
+        GameObject alienShipStatus = UI.transform.Find("Player2").gameObject.transform.Find("P2 Ship Status").gameObject;
+        Text alienHealthBar = alienShipStatus.transform.Find("P2 Health").gameObject.GetComponent<Text>();
+        Text alienShieldBar = alienShipStatus.transform.Find("P2 Shield").gameObject.GetComponent<Text>();
+
+        alienHealthBar.text = "<color=#ef233c>HP</color> " + alienHealth + "/2";
+        alienShieldBar.text = "<color=#90E0EF>SP</color> " + alienShield + "/3";
+    }
     
 
     void alive()

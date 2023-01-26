@@ -6,6 +6,8 @@ public class missile_launcher_controller : MonoBehaviour
 {
     public GameObject missle;
 
+    public GameObject flare;
+
     public GameObject sender;
     public Transform aim;
     public GameMaster gm;
@@ -22,7 +24,7 @@ public class missile_launcher_controller : MonoBehaviour
  
     void Start()
     {
-        tag = sender.gameObject.tag + "_Missile";
+        // tag = sender.gameObject.tag + "_Missile";
         selected = false;
         rot = Quaternion.Euler(0, 0, aim.rotation.eulerAngles.z - 90);
         angle = false;
@@ -66,7 +68,16 @@ public class missile_launcher_controller : MonoBehaviour
     {
         Debug.Log("Missile launched");
         GameObject missileClone = Instantiate(missle, aim.position, rot) as GameObject;
-        missileClone.tag = tag;
+        missileClone.tag = sender.gameObject.tag + "_Missile";
+        selected = false;
+        angle = false; 
+    }
+
+    public void launchFlare()
+    {
+        Debug.Log("Flare launched");
+        GameObject flareClone = Instantiate(flare, aim.position, rot) as GameObject;
+        flareClone.tag = sender.gameObject.tag + "_Flare";
         selected = false;
         angle = false; 
     }

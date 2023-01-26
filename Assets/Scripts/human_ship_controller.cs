@@ -6,8 +6,13 @@ public class human_ship_controller : MonoBehaviour
 {
 
     public GameMaster gm;
-    int health;
+
+    public int shield;
+    public int health;
     Animator anim;
+
+    public shield_controller myShield;
+
 
     public bool isAlive;
 
@@ -15,8 +20,11 @@ public class human_ship_controller : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        health = 3;
+        shield = 3;
+        health = 2;
         isAlive = true;
+
+        
         
     }
 
@@ -24,6 +32,7 @@ public class human_ship_controller : MonoBehaviour
     void Update()
     {
         isDead();
+        shield = myShield.getShield();
         
         // if (gm.isPaused && gm.phase != "p1" && gm.phase != "p2") - this line would allow for the animation to keep going in the missile paused phases 
         if (gm.isPaused)
@@ -49,11 +58,11 @@ public class human_ship_controller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Alien_Missile")
+        if (col.gameObject.tag == "Alien_Missile" && shield <= 0)
         {
             Destroy(col.gameObject);
             health -= 1;
-            Debug.Log("Human ship hit by alien missile");
+            Debug.Log("Human ship hit by alien missile" + shield);
         }
         
     }

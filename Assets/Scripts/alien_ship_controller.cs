@@ -6,24 +6,32 @@ public class alien_ship_controller : MonoBehaviour
 {
 
     public GameMaster gm;
-    int health;
+    public int health;
+    public int shield;
     Animator anim;
 
+    public shield_controller myShield;
+
     public bool isAlive;
+
+    
 
     
     void Start()
     {
         anim = GetComponent<Animator>();
-        health = 3;
+        health = 2;
+        shield = 3;
         isAlive = true;
         
+
     }
 
 
     void Update()
     {
         isDead();
+        shield = myShield.getShield();
         
         if (gm.isPaused)
         {
@@ -48,7 +56,7 @@ public class alien_ship_controller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Human_Missile")
+        if (col.gameObject.tag == "Human_Missile" && shield <= 0)
         {
             Destroy(col.gameObject);
             health -= 1;

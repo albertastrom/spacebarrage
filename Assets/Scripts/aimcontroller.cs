@@ -10,6 +10,9 @@ public class aimcontroller : MonoBehaviour
 
     public GameObject sender;
 
+    private string equipment;
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,7 @@ public class aimcontroller : MonoBehaviour
             direction = -180;
         }
         
+        equipment = "missile";
     }
 
     
@@ -95,6 +99,46 @@ public class aimcontroller : MonoBehaviour
         // set z rotation of the object by the direction
         transform.eulerAngles = new Vector3(0, 0, direction);
     }
+
+    void equipmentSelection()
+    {
+        int i = 0;
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if (i > 1)
+            {
+                i--;
+                Debug.Log(i);
+            }
+            
+            
+
+        }
+
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (i <= 2)
+            {
+                i++;
+                Debug.Log(i);
+            }
+        }
+
+        if (i == 0)
+        {
+            equipment = "missile";
+        }
+        else if (i == 1)
+        {
+            equipment = "flare";
+        }
+        else if (i == 2)
+        {
+            equipment = "portal";
+        }
+    }
+
 
     void mouseRotate()
     {
