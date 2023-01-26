@@ -12,6 +12,8 @@ TagManager:
   - Turn_Screen
   - Human_Flare
   - Alien_Flare
+  - Human_Portal
+  - Alien_Portal
   layers:
   - Default
   - TransparentFX

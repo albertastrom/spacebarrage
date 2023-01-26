@@ -5,8 +5,9 @@ using UnityEngine;
 public class homing_missile_controller : MonoBehaviour
 {
     private Rigidbody2D rb;
-
+    public bool teleported;
     public Transform target;
+    public GameObject explosion;
 
     GameMaster gm;
     Animator anim;
@@ -19,6 +20,7 @@ public class homing_missile_controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        teleported = false;
         gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody2D>();
         // if tag is human missile then target alien ship
@@ -93,9 +95,7 @@ public class homing_missile_controller : MonoBehaviour
 
     void onDestory()
     {
-        // particle effect 
-        // sound effect
-    
-        
+        Quaternion rot = Quaternion.Euler(0, 0, 0);
+        Instantiate(explosion, rb.transform.position, rot);
     }
 }
