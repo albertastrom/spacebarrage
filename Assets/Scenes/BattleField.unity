@@ -1455,6 +1455,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1037853194}
   m_CullTransparentMesh: 1
+--- !u!1001 &1079337070
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2275885264249215730, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_Name
+      value: Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275885264249215730, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_TagString
+      value: Human_Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
 --- !u!1 &1124768417
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,6 +2470,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1302246917}
   m_CullTransparentMesh: 1
+--- !u!1001 &1305628291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2275885264249215730, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_Name
+      value: Portal (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2275885264249215730, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_TagString
+      value: Alien_Portal
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7480636326584623382, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 33a2d7f44997d764fb82be40b359e5d8, type: 3}
 --- !u!1 &1307801525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,6 +2708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missle: {fileID: 437166389860913106, guid: ab6797a99327b461cb045aa7ce16691a, type: 3}
   flare: {fileID: 7327090074754333129, guid: 4708636707d3f482bb4374e0a58c79d2, type: 3}
+  portal: {fileID: 0}
   sender: {fileID: 1555928760}
   aim_controller: {fileID: 1307801526}
   aim: {fileID: 1307801527}
@@ -3562,6 +3685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missle: {fileID: 437166389860913106, guid: 5afdef08874954a6197ab5f01356ea48, type: 3}
   flare: {fileID: 7327090074754333129, guid: 1a57db6e00baf4206926f2ffed853647, type: 3}
+  portal: {fileID: 0}
   sender: {fileID: 1259705742}
   aim_controller: {fileID: 275311626}
   aim: {fileID: 275311625}
