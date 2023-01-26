@@ -45,6 +45,7 @@ public class flare_controller : MonoBehaviour
             Destroy(col.gameObject);
             Destroy(gameObject);
             Debug.Log("Flare Destroyed - Missile Collision");
+            AudioManager.instance.Play("Explosion");
         }
     }
 

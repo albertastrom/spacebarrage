@@ -45,6 +45,7 @@ public class shield_controller : MonoBehaviour
             Destroy(col.gameObject);
             shield -= 1;
             Debug.Log("Shield hit");
+            AudioManager.instance.Play("Deflect");
         }
 
         if ((col.gameObject.tag == "Human_Flare" && parentShip.tag == "Alien") || (col.gameObject.tag == "Alien_Flare" && parentShip.tag == "Human"))

@@ -170,7 +170,10 @@ public class GameMaster : MonoBehaviour
             // Animation
             // Change Scene to a winner scene 
             // Debug.Log("Game Over");
-            UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
+            if (human.isAlive)
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver - Alien");
+            else
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver - Human");
             return;
         }
 
@@ -296,6 +299,7 @@ public class GameMaster : MonoBehaviour
             // enable the battle gui 
             battleView.SetActive(true);
             Invoke("pause", .6f);
+
             // enable button here 
             battleButton.interactable = true;
             // Invoke("phaseHandler", 3f); // this should be changed to waiting for the ready/continue button to be pressed in the gui 

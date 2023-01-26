@@ -75,6 +75,7 @@ public class missile_launcher_controller : MonoBehaviour
         Debug.Log("Missile launched");
         GameObject missileClone = Instantiate(missle, aim.position, rot) as GameObject;
         missileClone.tag = sender.gameObject.tag + "_Missile";
+        AudioManager.instance.Play("MissileLaunch");
         selected = false;
         angle = false; 
     }
@@ -84,6 +85,7 @@ public class missile_launcher_controller : MonoBehaviour
         Debug.Log("Flare launched");
         GameObject flareClone = Instantiate(flare, aim.position, rot) as GameObject;
         flareClone.tag = sender.gameObject.tag + "_Flare";
+        AudioManager.instance.Play("Flare Launch");
         selected = false;
         angle = false; 
     }

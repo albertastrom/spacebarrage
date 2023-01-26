@@ -11,7 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleField.unity
     guid: e52db26623fdf4c3db498f6cb35dac88
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/GameOver - Human.unity
+    guid: 3b4c60301f426440b9bb5c49dde3bdf5
+  - enabled: 1
+    path: Assets/Scenes/GameOver - Alien.unity
+    guid: 39fba2df3a7dd426dbbda29774eac726
   m_configObjects: {}

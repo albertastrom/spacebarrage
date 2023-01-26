@@ -63,6 +63,7 @@ public class human_ship_controller : MonoBehaviour
             Destroy(col.gameObject);
             health -= 1;
             Debug.Log("Human ship hit by alien missile" + shield);
+            AudioManager.instance.Play("Explosion");
         }
         
     }

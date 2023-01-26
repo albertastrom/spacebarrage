@@ -87,6 +87,7 @@ public class homing_missile_controller : MonoBehaviour
             Destroy(col.gameObject);
             Destroy(gameObject);
             Debug.Log("Missile Destroyed - Missile Collision");
+            AudioManager.instance.Play("Explosion");
         }
     }
 
@@ -94,6 +95,7 @@ public class homing_missile_controller : MonoBehaviour
     {
         // particle effect 
         // sound effect
+    
         
     }
 }
