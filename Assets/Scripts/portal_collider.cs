@@ -13,6 +13,8 @@ public class portal_collider : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        //if collide with missile
+        if (col.gameObject.tag == "Human_Missile" || col.gameObject.tag == "Alien_Missile")
         {
             missile = col.gameObject;
             homing_missile_controller = missile.GetComponent<homing_missile_controller>();
@@ -44,5 +46,9 @@ public class portal_collider : MonoBehaviour
                 }
             }
         }
+
+        //if collide with other portal
+
+        //if collide with flare
     }
 }

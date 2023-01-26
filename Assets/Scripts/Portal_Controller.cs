@@ -11,7 +11,6 @@ public class Portal_Controller : MonoBehaviour
     GameMaster gm;
 
     private float speed = 5f;
-    private float distance = 5f;
 
     new string tag;
 
@@ -30,7 +29,7 @@ public class Portal_Controller : MonoBehaviour
         if (transform.position.x > 10 || transform.position.x < -10 || transform.position.y > 5 || transform.position.y < -5)
         {
             Destroy(gameObject);
-            Debug.Log("Missile Destroyed - Out of Range");
+            Debug.Log("portal Destroyed - Out of Range");
 
         }
 
@@ -49,16 +48,14 @@ public class Portal_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        float distanceTraveled = Vector2.Distance(rb.position, origin.transform.position);
-
-        if (distanceTraveled < distance)
+        if (Input.GetKey(KeyCode.Space))
         {
             rb.velocity = transform.up * speed;
         }
 
-        else
+        else if (Input.GetKeyUp(KeyCode.Space))
         {
-
+            Debug.Log("space released");
             GameObject newPortal = Instantiate(portal, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
             tag = gameObject.tag + "_Portal";
             newPortal.tag = tag;
