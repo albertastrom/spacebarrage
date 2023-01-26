@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class homing_missile_controller : MonoBehaviour
 {
-    private Rigidbody2D rb;
     public bool teleported;
+    private Rigidbody2D rb;
     public Transform target;
     public GameObject explosion;
 
@@ -17,12 +17,14 @@ public class homing_missile_controller : MonoBehaviour
     private float speed = 5f;
     private float rotationSpeed = 80f;
 
+
     // Start is called before the first frame update
     void Start()
     {
         teleported = false;
         gm = GameObject.FindGameObjectWithTag("GameMaster").GetComponent<GameMaster>();
         rb = GetComponent<Rigidbody2D>();
+
         // if tag is human missile then target alien ship
         // if tag is alien missile then target human ship
         if (gameObject.tag == "Human_Missile")
@@ -78,6 +80,7 @@ public class homing_missile_controller : MonoBehaviour
         rb.angularVelocity = -rotateAmount * rotationSpeed;
 
         rb.velocity = transform.up * speed;
+
     }
 
     // ON collision
@@ -86,6 +89,8 @@ public class homing_missile_controller : MonoBehaviour
         // Destory misile if it hits a another missile of the other kind
         if ((col.gameObject.tag == "Alien_Missile" && gameObject.tag == "Human_Missile") || (col.gameObject.tag == "Human_Missile" && gameObject.tag == "Alien_Missile"))
         {
+            Quaternion rot = Quaternion.Euler(0, 0, 0);
+            Instantiate(explosion, col.gameObject.transform.position, rot);
             Destroy(col.gameObject);
             Destroy(gameObject);
             Debug.Log("Missile Destroyed - Missile Collision");
@@ -95,7 +100,6 @@ public class homing_missile_controller : MonoBehaviour
 
     void onDestory()
     {
-        Quaternion rot = Quaternion.Euler(0, 0, 0);
-        Instantiate(explosion, rb.transform.position, rot);
+
     }
 }

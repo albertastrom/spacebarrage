@@ -122,7 +122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccbcdd0ad900e47f5be93ee67f29d506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleported: 0
   target: {fileID: 0}
+  explosion: {fileID: 7571256327159624376, guid: 9d9fb6a3be8aec746bff39634bf7db9a, type: 3}
   ps: {fileID: 8985356920131789072}
 --- !u!70 &6132623470322845129
 CapsuleCollider2D:
